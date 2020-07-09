@@ -1,5 +1,13 @@
 ---
 
+- name: Configure Red Hat Subscription Manager
+  template:
+    src: rhsm.conf.j2
+    dest: /etc/rhsm/rhsm.conf
+    owner: root
+    group: root
+    mode: 0644
+
 - name: Check Subscription Status
   shell: LANG=C subscription-manager list | awk  ' ( $1 == "Status:" ) { print $2 } ' | sort -u
   register: subscription_status
