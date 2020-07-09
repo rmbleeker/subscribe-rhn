@@ -33,7 +33,7 @@
     org_id: "{{ reg_organization_id | default(omit) }}"
     pool: "{{ reg_pool | default(omit) }}"
     pool_ids: "{{ reg_pool_ids | default(omit) }}"
-    server_insecure: "{{ reg_server_insecure | default('no') }}"
+    server_insecure: "{{ reg_server_insecure }}"
     autosubscribe: "{{ reg_autosubscribe | default(omit) }}"
     username: "{{ reg_username | default(omit) }}"
     password: "{{ reg_password | default(omit) }}"

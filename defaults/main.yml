@@ -24,6 +24,8 @@
 #    reg_server_proxy_user
 #    reg_server_proxy_password
 
+reg_server_insecure: no
+
 # Set this variable to true if you want to remove/disable all previously existing repositories. The default is false
 repo_reset: false
 
