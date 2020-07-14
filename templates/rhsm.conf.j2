@@ -5,46 +5,46 @@
 # Unified Entitlement Platform Configuration
 [server]
 # Server hostname:
-hostname = subscription.rhsm.redhat.com
+hostname = {{ reg_server_hostname }}
 
 # Server prefix:
-prefix = /subscription
+prefix = {{ reg_server_prefix }}
 
 # Server port:
-port = 443
+port = {{ reg_server_port }}
 
 # Set to 1 to disable certificate validation:
-insecure = "{{ reg_server_insecure }}"
+insecure = {{ reg_server_insecure }}
 
 # Set the depth of certs which should be checked
 # when validating a certificate
 ssl_verify_depth = 3
 
 # an http proxy server to use
-proxy_hostname = "{{ reg_server_proxy_hostname }}"
+proxy_hostname = {{ reg_server_proxy_hostname | default('') }}
 
 # The scheme to use for the proxy when updating repo definitions, if needed
 # e.g. http or https
-proxy_scheme = http
+proxy_scheme = {{ reg_server_proxy_scheme | default("http") }}
 
 # port for http proxy server
-proxy_port = "{{ reg_server_proxy_port }}"
+proxy_port = {{ reg_server_proxy_port | default('') }}
 
 # user name for authenticating to an http proxy, if needed
-proxy_user =
+proxy_user = {{ reg_server_proxy_user | default('') }}
 
 # password for basic http proxy auth, if needed
-proxy_password =
+proxy_password = {{ reg_server_proxy_pass | default('') }}
 
 # host/domain suffix blacklist for proxy, if needed
 no_proxy =
 
 [rhsm]
 # Content base URL:
-baseurl = https://cdn.redhat.com
+baseurl = {{ reg_rhsm_baseurl }}
 
 # Repository metadata GPG key URL:
-repomd_gpg_url =
+repomd_gpg_url = {{ reg_repomd_gpg_url | default('') }}
 
 # Server CA certificate location:
 ca_cert_dir = /etc/rhsm/ca/
